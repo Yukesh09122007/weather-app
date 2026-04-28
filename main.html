@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Weather App</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.page.active {
+    display: flex;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    width: 420px;
+    color: white;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #1e3c72;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.weather-details {
+    margin-top: 20px;
+    text-align: left;
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.weather-details p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<section class="page active" id="page1">
+    <div class="card">
+        <h1>☀ Weather Forecast App</h1>
+        <p>Search weather updates for any city around the world</p>
+
+        <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b" alt="Weather">
+
+        <p>Features:</p>
+        <p>✔ Temperature Display</p>
+        <p>✔ Weather Condition</p>
+        <p>✔ Humidity</p>
+        <p>✔ Wind Speed</p>
+        <p>✔ Next Page Navigation</p>
+
+        <button onclick="nextPage(2)">Get Started</button>
+    </div>
+</section>
+
+<!-- Page 2 -->
+<section class="page" id="page2">
+    <div class="card">
+        <h2>🔍 Search City Weather</h2>
+
+        <input type="text" id="cityInput" placeholder="Enter City Name">
+
+        <button onclick="getWeather()">Search Weather</button>
+        <button onclick="nextPage(1)">Back</button>
+    </div>
+</section>
+
+<!-- Page 3 -->
+<section class="page" id="page3">
+    <div class="card">
+        <h2 id="cityName">City Name</h2>
+
+        <h1 id="temp">28°C</h1>
+        <p id="weatherIcon">☁ Cloudy</p>
+
+        <img src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63" alt="Sky">
+
+        <div class="weather-details">
+            <p id="humidity">💧 Humidity: 60%</p>
+            <p id="wind">🌬 Wind Speed: 12 km/h</p>
+            <p id="pressure">🌡 Pressure: 1012 hPa</p>
+            <p id="visibility">👀 Visibility: 8 km</p>
+        </div>
+
+        <div class="footer">
+            Stay updated with live weather conditions 🌍
+        </div>
+
+        <button onclick="nextPage(2)">Search Again</button>
+    </div>
+</section>
+
+<script>
+function nextPage(pageNumber) {
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + pageNumber).classList.add("active");
+}
+
+function getWeather() {
+    let city = document.getElementById("cityInput").value;
+
+    if (city === "") {
+        alert("Please enter a city name");
+        return;
+    }
+
+    let temperature = Math.floor(Math.random() * 15) + 20;
+
+    let weatherTypes = [
+        "☀ Sunny",
+        "☁ Cloudy",
+        "🌧 Rainy",
+        "⛈ Stormy",
+        "❄ Snowy"
+    ];
+
+    let humidity = Math.floor(Math.random() * 40) + 40;
+    let wind = Math.floor(Math.random() * 20) + 5;
+    let pressure = Math.floor(Math.random() * 20) + 1000;
+    let visibility = Math.floor(Math.random() * 5) + 5;
+
+    let randomWeather =
+        weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
+
+    document.getElementById("cityName").innerText = "📍 " + city;
+    document.getElementById("temp").innerText = temperature + "°C";
+    document.getElementById("weatherIcon").innerText = randomWeather;
+    document.getElementById("humidity").innerText =
+        "💧 Humidity: " + humidity + "%";
+    document.getElementById("wind").innerText =
+        "🌬 Wind Speed: " + wind + " km/h";
+    document.getElementById("pressure").innerText =
+        "🌡 Pressure: " + pressure + " hPa";
+    document.getElementById("visibility").innerText =
+        "👀 Visibility: " + visibility + " km";
+
+    nextPage(3);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+# Weather Forecast App
+
+## Project Overview
+
+The Weather Forecast App is a simple and interactive web application built using HTML, CSS, and JavaScript. It allows users to search for any city and view weather-related details such as temperature, weather condition, humidity, wind speed, pressure, and visibility.
+
+This project is designed with a modern multi-page interface using smooth button navigation between pages. It is beginner-friendly and suitable for mini projects, college submissions, and frontend practice.
+
+---
+
+## Features
+
+* Multi-page weather app design
+* Search weather by city name
+* Temperature display
+* Weather condition with icons
+* Humidity details
+* Wind speed information
+* Atmospheric pressure display
+* Visibility range display
+* Beautiful UI with glassmorphism effect
+* Responsive and clean design
+* Button-based page navigation
+
+---
+
+## Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+
+---
+
+## Project Structure
+
+```text
+Weather-App/
+│
+├── index.html
+└── README.md
+```
+
+Since all HTML, CSS, and JavaScript are combined into a single file, the project is easy to run and manage.
+
+---
+
+## How to Run the Project
+
+1. Download or copy the project code
+2. Save the file as `index.html`
+3. Open the file using any web browser such as Chrome, Edge, or Firefox
+4. Click on **Get Started**
+5. Enter a city name
+6. Click **Search Weather**
+7. View the weather details on the next page
+
+---
+
+## How It Works
+
+The application uses JavaScript to generate sample weather data dynamically when a city is searched.
+
+It displays:
+
+* Random temperature
+* Random weather condition
+* Random humidity
+* Random wind speed
+* Random pressure
+* Random visibility
+
+This makes the project visually interactive for demonstration purposes.
+
+---
+
+## Future Improvements
+
+Possible upgrades for this project:
+
+* Connect with real weather API
+* Live weather updates
+* 7-day weather forecast
+* Dark mode support
+* Location-based weather detection
+* Search history feature
+* Better animations and transitions
+
+---
+
+## Learning Outcomes
+
+By building this project, you can learn:
+
+* HTML page structuring
+* CSS modern UI styling
+* JavaScript DOM manipulation
+* Event handling
+* Multi-page navigation using JavaScript
+* Responsive frontend design principles
+
+---
+
+## Conclusion
+
+This Weather Forecast App is a simple yet attractive frontend project that demonstrates practical use of HTML, CSS, and JavaScript. It is ideal for students who want a strong and presentable mini project for academic submission.
+
+---
